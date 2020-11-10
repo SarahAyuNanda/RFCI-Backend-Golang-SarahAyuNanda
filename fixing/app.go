@@ -9,21 +9,21 @@ func main() {
 	fmt.Println(foo(7, collection))
 }
 
-func foo(input int, numbers []int) (int, []int) {
-	var result []int
-	var nextIndex int
+func foo(input int, numbers []int) (result [][]int) {
+	// var result []int
+	// var nextIndex int
 
-	for idx, number := range numbers {
-		nextIndex = idx + 1
+	// for idx, number := range numbers {
+	// 	nextIndex = idx + 1
 
-		if nextIndex >= len(numbers) {
-			break;
-		}
-		nextNumber := numbers[nextIndex]
-		if number + nextNumber == input {
-			result = append(result, number)
-			result = append(result, nextNumber)
-		}
-	}
-	return input, result
+	// 	if nextIndex >= len(numbers) {
+	// 		break;
+	// 	}
+	// 	nextNumber := numbers[nextIndex]
+	// 	if number + nextNumber == input {
+	// 		result = append(result, number)
+	// 		result = append(result, nextNumber)
+	// 	}
+	// }
+	return 
 }
