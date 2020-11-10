@@ -10,20 +10,14 @@ func main() {
 }
 
 func foo(input int, numbers []int) (result [][]int) {
-	// var result []int
-	// var nextIndex int
-
-	// for idx, number := range numbers {
-	// 	nextIndex = idx + 1
-
-	// 	if nextIndex >= len(numbers) {
-	// 		break;
-	// 	}
-	// 	nextNumber := numbers[nextIndex]
-	// 	if number + nextNumber == input {
-	// 		result = append(result, number)
-	// 		result = append(result, nextNumber)
-	// 	}
-	// }
-	return 
+	for i := 0; i < len(numbers); i++ {
+		for j := i + 1; j < len(numbers); j++ {
+			sum := numbers[i] + numbers[j]
+			if sum == input {
+				pair := []int{numbers[i], numbers[j]}
+				result = append(result, pair)
+			}
+		}
+	}
+	return
 }
