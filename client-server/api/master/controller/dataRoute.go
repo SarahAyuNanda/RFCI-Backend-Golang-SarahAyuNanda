@@ -17,7 +17,7 @@ type DataHandler struct {
 
 func DataController(r *mux.Router, service usecase.DataUsecase) {
 	dataHandler := DataHandler{service}
-	r.HandleFunc("/blog", dataHandler.PostingData).Methods(http.MethodPost)
+	r.HandleFunc("/blogs", dataHandler.PostingData).Methods(http.MethodPost)
 }
 
 func (d DataHandler) PostingData(w http.ResponseWriter, r *http.Request) {
@@ -29,7 +29,7 @@ func (d DataHandler) PostingData(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Println(data)
 
-	err = d.DataUsecase.PostData(data)
+	err = d.DataUsecase.PostData(data, r)
 	if err != nil {
 		w.WriteHeader(http.StatusNotImplemented)
 		w.Write([]byte("Error"))
