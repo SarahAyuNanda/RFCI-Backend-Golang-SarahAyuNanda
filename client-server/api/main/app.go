@@ -2,7 +2,8 @@ package main
 
 import (
 	"github.com/golang/sarahayunanda/refactory/client-server/api/master"
-	"github.com/golang/sarahayunanda/refactory/client-server/configuration")
+	"github.com/golang/sarahayunanda/refactory/client-server/configuration"
+)
 
 
 func main() {
