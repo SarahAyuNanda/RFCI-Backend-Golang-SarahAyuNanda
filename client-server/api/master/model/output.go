@@ -7,5 +7,5 @@ type Title struct {
 	Title string `json:"title"`
 }
 type Comment struct {
-	Comment []Message `json:"comment"`
+	Comment []Message `json:"comments"`
 }

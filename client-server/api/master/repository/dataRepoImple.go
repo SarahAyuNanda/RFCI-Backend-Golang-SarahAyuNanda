@@ -1,6 +1,7 @@
 package repository
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -22,7 +23,10 @@ func (d *DataRepoImple) CreateData(data model.Data, r *http.Request) error {
 	if err != nil {
 		log.Println(err)
 	}
-	aut := fmt.Sprintf("%v Success POST http://%v%v {\"author\" : \"%v\"} \n", time.Now(), r.Host, r.URL.Path, data.Author )
+	objAut := model.Author{data.Author}
+	jsonAut, _ := json.Marshal(objAut)
+	jsonStringAut := string(jsonAut)
+	aut := fmt.Sprintf("%v Success POST http://%v%v %s \n", time.Now(), r.Host, r.URL.Path, jsonStringAut)
 	if _, err := author.WriteString(aut); err != nil {
 		log.Println(err)
 	}
@@ -31,7 +35,10 @@ func (d *DataRepoImple) CreateData(data model.Data, r *http.Request) error {
 	if err != nil {
 		log.Println(err)
 	}
-	ttl := fmt.Sprintf("%v Success POST http://%v%v {\"title\" : \"%v\"} \n", time.Now(), r.Host, r.URL.Path, data.Title )
+	objTtl := model.Title{data.Title}
+	jsonTtl, _ := json.Marshal(objTtl)
+	jsonStringTtl := string(jsonTtl)
+	ttl := fmt.Sprintf("%v Success POST http://%v%v %s \n", time.Now(), r.Host, r.URL.Path, jsonStringTtl)
 	if _, err := title.WriteString(ttl); err != nil {
 		log.Println(err)
 	}
@@ -40,7 +47,10 @@ func (d *DataRepoImple) CreateData(data model.Data, r *http.Request) error {
 	if err != nil {
 		log.Println(err)
 	}
-	msg := fmt.Sprintf("%v Success POST http://%v%v {\"comments\" : \"%v\"} \n", time.Now(), r.Host, r.URL.Path, data.Comment )
+	objMsg := model.Comment{data.Comment}
+	jsonMsg, _ := json.Marshal(objMsg)
+	jsonStringMsg := string(jsonMsg)
+	msg := fmt.Sprintf("%v Success POST http://%v%v %s \n", time.Now(), r.Host, r.URL.Path, jsonStringMsg)
 	if _, err := message.WriteString(msg); err != nil {
 		log.Println(err)
 	}
